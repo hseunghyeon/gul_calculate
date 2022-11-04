@@ -51,8 +51,6 @@ This will automatically create a Rails app if none already exists, and store it 
 
 You should now be able to open http://localhost:3000/admin in your browser. You can log in using:
 
-User: admin@example.com Password: password
-
 If you need to perform any other commands on the test application, just pass them to the local rake task. For example, to boot the rails console:
 
 bin/rake local console
