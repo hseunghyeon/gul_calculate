@@ -20,18 +20,18 @@ python -m pip install pyqt5
 
 ## Contributing
 
-Please read [CONTRIBUTING.md]() for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/hseunghyeon/gul_calculate/blob/main/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
 * **studyingrabbit** - *Initial work* - [studyingrabbit](https://studyingrabbit.tistory.com/)
 * **Seungho Yoo** - *Init repository* - this repository
 
-See also the list of [contributors]() who participated in this project.
+See also the list of [contributors](https://github.com/hseunghyeon/gul_calculate) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/hseunghyeon/gul_calculate/blob/main/LICENSE.md) file for details
 
 ## Acknowledgments
 
