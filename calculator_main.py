@@ -1,4 +1,5 @@
 import sys
+import math
 from PyQt5.QtWidgets import *
 
 class Main(QDialog):
@@ -152,19 +153,37 @@ class Main(QDialog):
         solution = display % text
         self.display.setText(solution)
 
+    def button_reciprocal_clicked(self):
+        self.display.text()
+        display = 1/(display.text)
+        self.display.setText(display)
+
+    def button_expon_clicked(self):
+        self.display.text()
+        display = math.exp(display.text)
+        self.display.setText(display)
+
+    def button_sqrt_clicked(self):
+        self.display.text()
+        display = math.sqrt(display.text)
+        self.display.setText(display)
+
     def button_equal_clicked(self):
-        equation = self.equation.text()
-        solution = eval(equation)
-        self.solution.setText(str(solution))
+        solution = self.display.text()
+        self.display.setText(str(solution))
 
     def button_clear_clicked(self):
-        self.equation.setText("")
-        self.solution.setText("")
+        self.display.setText("")
 
     def button_backspace_clicked(self):
-        equation = self.equation.text()
-        equation = equation[:-1]
-        self.equation.setText(equation)
+        self.display.text()
+        display =(display[:-1])
+        self.display.setText(display)
+
+    def button_ce_clicked(self):
+        self.display.text()
+        display = (display[:-1])
+        self.display.setText(display)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
