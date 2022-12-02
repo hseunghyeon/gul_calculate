@@ -110,15 +110,47 @@ class Main(QDialog):
     #################
     ### functions ###
     #################
+    
     def number_button_clicked(self, num):
-        equation = self.equation.text()
-        equation += str(num)
-        self.equation.setText(equation)
+        display = self.display.text()
+        self.display.setText("")
+        display += str(num)
+        self.display.setText(display)
 
-    def button_operation_clicked(self, operation):
-        equation = self.equation.text()
-        equation += operation
-        self.equation.setText(equation)
+    def button_plus_clicked(self):
+        display = display.text()
+        self.display.setText("")
+        text = self.clicked(self)
+        solution = display + text
+        self.equation.setText(solution)
+
+    def button_minus_clicked(self,solution):
+        display = display.text()
+        self.display.setText("")
+        text = self.display.text()
+        solution = display - text
+        self.display.setText(solution)
+
+    def button_product_clicked(self,solution):
+        display = display.text()
+        self.display.setText("")
+        text = self.display.text()
+        solution = display * text
+        self.display.setText(solution)
+
+    def button_division_clicked(self,solution):
+        display = display.text()
+        self.display.setText("")
+        text = self.display.text()
+        solution = display / text
+        self.display.setText(solution)
+
+    def button_remainder_clicked(self,solution):
+        display = display.text()
+        self.display.setText("")
+        text = self.display.text()
+        solution = display % text
+        self.display.setText(solution)
 
     def button_equal_clicked(self):
         equation = self.equation.text()
