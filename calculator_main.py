@@ -63,6 +63,21 @@ class Main(QDialog):
         calculator_layout.addWidget(button_ce, 0, 1)
         calculator_layout.addWidget(button_backspace, 0, 3)
 
+        ### 기타 연산 버튼 생성 (수정) #7
+        button_reciprocal = QPushButton("1/x")
+        button_expon = QPushButton("x^2")
+        button_sqrt = QPushButton("제곱근")
+
+        ### 기타 연산 버튼을 layout_operation 레이아웃에 추가 (추가)
+        calculator_layout.addWidget(button_reciprocal, 1, 0)
+        calculator_layout.addWidget(button_expon, 1, 1)
+        calculator_layout.addWidget(button_sqrt, 1, 2)
+
+        ### 기타 연산 버튼 클릭시 시그널 설정
+        button_reciprocal.clicked.connect(self.button_reciprocal_clicked)
+        button_expon.clicked.connect(self.button_expon_clicked)
+        button_sqrt.clicked.connect(self.button_sqrt_clicked)
+
         ### 숫자 버튼 생성하고, layout_number 레이아웃에 추가
         ### 각 숫자 버튼을 클릭했을 때, 숫자가 수식창에 입력 될 수 있도록 시그널 설정
         number_button_dict = {}
