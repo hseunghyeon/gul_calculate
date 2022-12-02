@@ -7,41 +7,43 @@ class Main(QDialog):
         self.init_ui()
 
     def init_ui(self):
+        self.display = QLineEdit("")
+        self.display.setReadOnly(True) # 입력이 되지 않도록
         main_layout = QVBoxLayout()
 
         ### 각 위젯을 배치할 레이아웃을 미리 만들어 둠
-        layout_operation = QHBoxLayout()
-        layout_clear_equal = QHBoxLayout()
-        layout_number = QGridLayout()
-        layout_equation_solution = QFormLayout()
+        calculator_layout = QGridLayout()
+        calculator_layout = QGridLayout()
+        calculator_layout = QGridLayout()
+        layout_display = QFormLayout()
 
-        ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성
-        label_equation = QLabel("Equation: ")
-        label_solution = QLabel("Number: ")
-        self.equation = QLineEdit("")
-        self.solution = QLineEdit("")
+        ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성 #5
+        label_display = QLabel("display : ")
+        self.display = QLineEdit("")
 
         ### layout_equation_solution 레이아웃에 수식, 답 위젯을 추가
-        layout_equation_solution.addRow(label_equation, self.equation)
-        layout_equation_solution.addRow(label_solution, self.solution)
+        layout_display.addRow(label_display, self.display)
 
-        ### 사칙연산 버튼 생성
+        ### 사칙연산 버튼 생성 #6
         button_plus = QPushButton("+")
         button_minus = QPushButton("-")
         button_product = QPushButton("x")
         button_division = QPushButton("/")
+        button_remainder = QPushButton("%")
 
-        ### 사칙연산 버튼을 클릭했을 때, 각 사칙연산 부호가 수식창에 추가될 수 있도록 시그널 설정
-        button_plus.clicked.connect(lambda state, operation = "+": self.button_operation_clicked(operation))
-        button_minus.clicked.connect(lambda state, operation = "-": self.button_operation_clicked(operation))
-        button_product.clicked.connect(lambda state, operation = "*": self.button_operation_clicked(operation))
-        button_division.clicked.connect(lambda state, operation = "/": self.button_operation_clicked(operation))
+        ### 사칙연산 버튼을 클릭했을 때 시그널 설정
+        button_plus.clicked.connect(self.button_plus_clicked)
+        button_minus.clicked.connect(self.button_minus_clicked)
+        button_product.clicked.connect(self.button_product_clicked)
+        button_division.clicked.connect(self.button_division_clicked)
+        button_remainder.clicked.connect(self.button_remainder_clicked)
 
-        ### 사칙연산 버튼을 layout_operation 레이아웃에 추가
-        layout_operation.addWidget(button_plus)
-        layout_operation.addWidget(button_minus)
-        layout_operation.addWidget(button_product)
-        layout_operation.addWidget(button_division)
+        ### 사칙연산 버튼을 calculator_layout 레이아웃에 추가
+        calculator_layout.addWidget(button_plus, 4, 3)
+        calculator_layout.addWidget(button_minus, 3, 3)
+        calculator_layout.addWidget(button_product, 2, 3)
+        calculator_layout.addWidget(button_division, 1, 3)
+        calculator_layout.addWidget(button_remainder, 0, 0)
 
         ### =, clear, backspace 버튼 생성
         button_equal = QPushButton("=")
