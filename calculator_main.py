@@ -18,7 +18,6 @@ class Main(QDialog):
         layout_display = QFormLayout()
 
         ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성 #5
-        
         label_display = QLabel("display : ")
         self.display = QLineEdit("")
 
@@ -46,20 +45,23 @@ class Main(QDialog):
         calculator_layout.addWidget(button_division, 1, 3)
         calculator_layout.addWidget(button_remainder, 0, 0)
 
-        ### =, clear, backspace 버튼 생성
+        ### =, C, CE, backspace 버튼 생성 (수정) #7
         button_equal = QPushButton("=")
-        button_clear = QPushButton("Clear")
-        button_backspace = QPushButton("Backspace")
+        button_clear = QPushButton("C")
+        button_ce = QPushButton("CE")
+        button_backspace = QPushButton("<-")
 
-        ### =, clear, backspace 버튼 클릭 시 시그널 설정
+        ### =, C, CE, backspace 버튼 클릭 시 시그널 설정 (수정)
         button_equal.clicked.connect(self.button_equal_clicked)
         button_clear.clicked.connect(self.button_clear_clicked)
+        button_ce.clicked.connect(self.button_backspace_clicked)
         button_backspace.clicked.connect(self.button_backspace_clicked)
 
-        ### =, clear, backspace 버튼을 layout_clear_equal 레이아웃에 추가
-        layout_clear_equal.addWidget(button_clear)
-        layout_clear_equal.addWidget(button_backspace)
-        layout_clear_equal.addWidget(button_equal)
+        ### =, C, CE, backspace 버튼 calculator_layout 레이아웃에 추가 (수정)
+        calculator_layout.addWidget(button_equal, 5, 3)
+        calculator_layout.addWidget(button_clear, 0, 2)
+        calculator_layout.addWidget(button_ce, 0, 1)
+        calculator_layout.addWidget(button_backspace, 0, 3)
 
         ### 숫자 버튼 생성하고, layout_number 레이아웃에 추가
         ### 각 숫자 버튼을 클릭했을 때, 숫자가 수식창에 입력 될 수 있도록 시그널 설정
