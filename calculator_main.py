@@ -84,30 +84,28 @@ class Main(QDialog):
         for number in range(0, 10):
             number_button_dict[number] = QPushButton(str(number))
             number_button_dict[number].clicked.connect(lambda state, num = number:
-                                                       self.number_button_clicked(num))
-            if number >0:
-                x,y = divmod(number-1, 3)
-                layout_number.addWidget(number_button_dict[number], x, y)
-            elif number==0:
-                layout_number.addWidget(number_button_dict[number], 3, 1)
+                                                       self.number_button_clicked(num))                                          
+      
+        calculator_layout.addWidget(number_button_dict[1], 2, 0)
+        calculator_layout.addWidget(number_button_dict[0], 5, 1)
+        calculator_layout.addWidget(number_button_dict[2], 2, 1)
+        calculator_layout.addWidget(number_button_dict[3], 2, 2)
+        calculator_layout.addWidget(number_button_dict[4], 3, 0)
+        calculator_layout.addWidget(number_button_dict[5], 3, 1)
+        calculator_layout.addWidget(number_button_dict[6], 3, 2)
+        calculator_layout.addWidget(number_button_dict[7], 4, 0)
+        calculator_layout.addWidget(number_button_dict[8], 4, 1)
+        calculator_layout.addWidget(number_button_dict[9], 4, 2)
+
 
         ### 소숫점 버튼과 00 버튼을 입력하고 시그널 설정
         button_dot = QPushButton(".")
         button_dot.clicked.connect(lambda state, num = ".": self.number_button_clicked(num))
-        layout_number.addWidget(button_dot, 3, 2)
+        calculator_layout.addWidget(button_dot, 5, 2)
 
         button_double_zero = QPushButton("00")
         button_double_zero.clicked.connect(lambda state, num = "00": self.number_button_clicked(num))
-        layout_number.addWidget(button_double_zero, 3, 0)
-
-        ### 각 레이아웃을 main_layout 레이아웃에 추가
-        main_layout.addLayout(layout_equation_solution)
-        main_layout.addLayout(layout_operation)
-        main_layout.addLayout(layout_clear_equal)
-        main_layout.addLayout(layout_number)
-
-        self.setLayout(main_layout)
-        self.show()
+        calculator_layout.addWidget(button_double_zero, 5, 0)
 
     #################
     ### functions ###
