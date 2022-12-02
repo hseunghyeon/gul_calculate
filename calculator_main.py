@@ -70,7 +70,7 @@ class Main(QDialog):
         for number in range(0, 10):
             number_button_dict[number] = QPushButton(str(number))
             number_button_dict[number].clicked.connect(lambda state, num = number:
-                                                       self.number_button_clicked(num))                                                                                         
+                                                                         self.number_button_clicked(num))                                                                                         
         calculator_layout.addWidget(number_button_dict[1], 2, 0)
         calculator_layout.addWidget(number_button_dict[0], 5, 1)
         calculator_layout.addWidget(number_button_dict[2], 2, 1)
