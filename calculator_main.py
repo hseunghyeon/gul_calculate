@@ -7,23 +7,22 @@ class Main(QDialog):
         self.init_ui()
 
     def init_ui(self):
+        self.display = QLineEdit("")
+        self.display.setReadOnly(True) # 입력이 되지 않도록
         main_layout = QVBoxLayout()
 
         ### 각 위젯을 배치할 레이아웃을 미리 만들어 둠
-        layout_operation = QHBoxLayout()
-        layout_clear_equal = QHBoxLayout()
-        layout_number = QGridLayout()
-        layout_equation_solution = QFormLayout()
+        calculator_layout = QGridLayout()
+        calculator_layout = QGridLayout()
+        calculator_layout = QGridLayout()
+        layout_display = QFormLayout()
 
-        ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성
-        label_equation = QLabel("Equation: ")
-        label_solution = QLabel("Number: ")
-        self.equation = QLineEdit("")
-        self.solution = QLineEdit("")
+        ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성 
+        label_display = QLabel("display : ")
+        self.display = QLineEdit("")
 
         ### layout_equation_solution 레이아웃에 수식, 답 위젯을 추가
-        layout_equation_solution.addRow(label_equation, self.equation)
-        layout_equation_solution.addRow(label_solution, self.solution)
+        layout_display.addRow(label_display, self.display)
 
         ### 사칙연산 버튼 생성
         button_plus = QPushButton("+")
